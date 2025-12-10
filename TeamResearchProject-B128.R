@@ -35,3 +35,32 @@ Fat_Supply_Quantity_Data_final <- Fat_Supply_Quantity_Data_clean %>%
 
 #View cleaned colums
 View(Fat_Supply_Quantity_Data_final)
+
+##Visualisation part
+
+#Histogram for Animal products
+df <- Fat_Supply_Quantity_Data_final
+png("hist_animal_products.png")
+hist(df$Animal_Products,
+     main = "Distribution of Animal Product Supply",
+     xlab = "Animal Products (kg/capita/year)",
+     ylab = "Number of Countries")
+dev.off()
+#Histogram for Undernourishment column
+png("hist_undernourishment.png")
+hist(df$Undernourished,
+     main = "Distribution of Undernourishment",
+     xlab = "Undernourishment (%)",
+     ylab = "Number of Countries")
+dev.off()
+
+#Scatter Plot
+png("scatter_animal_vs_undernourishment.png")
+plot(df$Animal_Products,
+     df$Undernourished,
+     main = "Animal Products Supply vs Undernourishment",
+     xlab = "Animal Products (kg/capita/year)",
+     ylab = "Undernourishment (%)",
+     pch = 19)
+dev.off()
+
